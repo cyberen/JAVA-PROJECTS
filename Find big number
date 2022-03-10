@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class buyuksayıyıbulma {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("Birinci sayıyı giriniz : ");
+		int n1 = scan.nextInt();
+		
+		System.out.println("İkinci sayıyı giriniz : ");
+		int n2 = scan.nextInt();
+		
+		System.out.println("Üçüncü sayıyı giriniz : ");
+		int n3 = scan.nextInt();
+		
+		if(n1 >= n2 && n1 >= n3) {
+			System.out.println("En büyük sayı " + n1 + " 'dir.");
+		}
+		else if(n2 >= n1 && n2 >= n3) {
+			System.out.println("En büyük sayı " + n2 + " 'dir.");
+		}
+		else {
+			System.out.println("En büyük sayı " + n3 + " 'dir.");
+		}
+
+	}
+
+}
