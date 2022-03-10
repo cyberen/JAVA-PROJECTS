@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class faktorıyelbulma {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("Faktoriyelini Görmek İstediğiniz Sayı :");
+		int sayı = scan.nextInt();
+		int faktoriyel = 1;
+		int i = 1;
+		
+		while (sayı>=i) {
+			
+			faktoriyel = faktoriyel * i;
+			
+			i++;	
+		}
+		
+		System.out.println("Faktoriyel = " + faktoriyel);
+		
+	}
+
+}
