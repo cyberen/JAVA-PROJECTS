@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class asalbulma {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Asal sınırı belirleyin :");
+		int sayı = scan.nextInt();
+		int sayac;
+		
+		
+		while (sayı >= 2) {
+		sayac = 0;	
+			
+			for (int i = 2; i < sayı; i++) {
+				if( sayı % i == 0) {
+					sayac++;
+				}
+			}
+		if ( sayac == 0) {
+			System.out.println(sayı + "  " + "Asal Sayıdır.");
+		}
+		sayı--;
+		}
+	}
+
+}
