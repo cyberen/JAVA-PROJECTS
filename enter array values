@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+	public class dizi_alma {
+
+		public static void main(String[] args) {
+			// TODO Auto-generated method stub
+			Scanner scan = new Scanner (System.in);
+
+			int [] arr1 = {10,20,30,40,50};
+			
+			int [] arr2 = new int [5];
+			
+			System.out.println("Array 2 değerlerini giriniz : ");
+			
+			for(int i=0;i<arr2.length;i++) {
+				arr2[i] = scan.nextInt();
+			}
+			
+			for(int a = 0; a < arr2.length; a++) {
+				System.out.println("Array 2'nin " + (a + 1) + "'ıncı değeri : " + arr2[a]);
+			}	
+		}	
+}
