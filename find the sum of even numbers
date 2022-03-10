@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class cıftsayıtoplamıbulma {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Bir Sayı Giriniz");
+		int sayı = scan.nextInt();
+		int toplam =0;
+		
+		int i = 1;
+		
+		while (i<=sayı) {
+		
+			i++;
+			
+			if (i%2==0) {
+		toplam+=i;		
+			}
+		}
+		System.out.println(sayı + " e kadar olan çift sayıların toplamı :" + toplam + "'dır.");
+
+	}
+
+}
+
