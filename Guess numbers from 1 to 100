@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class sayı_tahmin_oyunu {
+
+	public static int random() {
+		
+		int sayi = (int)(Math.random()*100);
+		return sayi;
+	}
+	
+		public static void main (String [] args) {
+			Scanner scan = new Scanner(System.in);
+	  
+			int dogru = random();
+	
+			
+			
+			System.out.println("1 - 100 Arası sayıyı tahmin ediniz : ");
+			int sayı = scan.nextInt();
+			
+			
+			
+			if(sayı == dogru) {
+				System.out.println("Tebrikler tahmininiz doğru ...");
+			}
+			
+			else if (sayı > dogru) {
+				System.out.println("Tahmininiz sayıdan büyük ...");
+			}
+			
+			else if (sayı < dogru) {
+				System.out.println("Tahmininiz sayıdan küçük ...");
+			}
+			System.out.println("Doğru sayı : " + dogru);
+		}
+			
+}
