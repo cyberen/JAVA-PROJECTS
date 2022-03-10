@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class giris_arayuzu {
+
+
+		public static void main(String[] args) {
+			// TODO Auto-generated method stub
+
+			Scanner scan = new Scanner(System.in);
+			String kulıd = "admin";
+			String kulşifre = "123456";
+			
+			System.out.println("Kullanıcı adı giriniz : ");
+			String ıd = scan.next();
+			
+			System.out.println("Şifre Giriniz : ");
+			String şifre = scan.next();
+			
+		if (kulıd.equals(ıd) && kulşifre.equals(şifre)) {
+			System.out.println("Sisteme Başarıyla Girildi... ");
+		}
+		else {
+			System.out.println("Giriş Başarısız...");
+		}
+			
+		}
+}
