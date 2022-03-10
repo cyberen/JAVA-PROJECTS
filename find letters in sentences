@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class cumleıcındeharfbulma {
+	
+		static void harfBulma(String kelime,char harf) {
+			
+			int sayac = 0;
+			
+			for (int i = 0;i < kelime.length();i++) {
+				
+				if (kelime.charAt(i) == harf) {
+					sayac++;
+				}
+			}
+			System.out.println("Girdiğiniz cümle içerisinde " + sayac + " tane '" + harf + "' vardır.");
+		}
+
+	
+		public static void main (String[]args) {
+			Scanner scan = new Scanner(System.in);
+	
+		System.out.println("Bir cümle giriniz :");
+		String kelime = scan.nextLine();
+		
+		System.out.println("Kelime içindeki sayısını öğrenmek istediğiniz harfi giriniz :");
+		char harf = scan.next().charAt(0);
+		
+		harfBulma(kelime,harf);
+			
+	}
+	
+}
