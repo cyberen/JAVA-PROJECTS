@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class sayıvekuvvetbulma {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("Bir Sayı Giriniz :");
+		int taban = scan.nextInt();
+			
+		System.out.println("Bir Kuvvet Giriniz :");
+		int kuvvet = scan.nextInt();
+		
+		long sonuc = 1;
+		
+		while (kuvvet !=0) {
+			sonuc*=taban;
+			--kuvvet;
+		}
+		System.out.println("İşlem Sonucu :" + sonuc);
+	}
+}
