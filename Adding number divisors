@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class bolenlerıtoplamıbulma {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Bir Sayı Giriniz :");
+		int sayı = scan.nextInt();
+		
+		int sayac=0;
+		int toplam = 0;
+		
+		while (sayı >= sayac) {
+			sayac ++;
+			if(sayı%sayac==0) {
+				
+				toplam += sayac ;
+			}
+		}
+		System.out.println(sayı +"  " + "sayısının bölenleri toplamı " + toplam + "' dır.");	
+	}
+}
