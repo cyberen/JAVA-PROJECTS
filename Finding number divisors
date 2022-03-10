@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class bolenlerıbulma {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("Bölenlerini Görmek İstediğiniz Sayıyı Giriniz :");
+		int sayı = scan.nextInt();
+		
+		int i = 1;
+		
+		while (i<=sayı) {
+			
+			i++;
+		if (sayı%i==0) {
+			System.out.println(i + " ");
+		}
+		}	
+	}
+}
