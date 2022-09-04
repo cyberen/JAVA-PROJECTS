@@ -1,0 +1,26 @@
+
+public class linearSearch {
+	
+	public static int search(int aranan) {
+		
+		int[] list = {3,4,5,6,7};
+		
+		for(int j=0;j< list.length;j++) {
+			
+			if( list[j]==aranan) {
+				return j;
+			}
+		}
+		return -1;
+	}
+	
+	public static void main(String[] args) {
+		// baştan başlayarak doğrudan arama
+		
+		System.out.println(search(7));
+		
+		
+	}
+	
+
+}
