@@ -1,0 +1,104 @@
+public interface Calisan {
+
+	void calis();
+	
+}
+
+public class Programci implements Calisan {
+
+	@Override
+	public void calis() {
+		// TODO Auto-generated method stub
+		System.out.println("Programcı Çalışıyor...");
+	}
+
+}
+public class Sekreter implements Calisan {
+	
+	public void calis() {
+		System.out.println("Sekreter Çalışıyor...");
+	}
+
+}
+public class Pazarlamaci implements Calisan {
+
+	@Override
+	public void calis() {
+		// TODO Auto-generated method stub
+		System.out.println("Pazarlamacı Çalışıyor...");
+	}
+
+}
+
+public class Mudur implements Calisan {
+
+	@Override
+	public void calis() {
+		// TODO Auto-generated method stub
+		System.out.println("Müdür Çalışıyor...");
+	}
+
+}
+
+public class GenelMudur extends Mudur{
+	
+	public void calis() {
+		System.out.println("Genel Müdür Çalışıyor...");
+	}
+	public void toplantıYonet() {
+		System.out.println("Toplantı Yönetiliyor...");
+	}
+
+}
+public class Programci implements Calisan {
+
+	@Override
+	public void calis() {
+		// TODO Auto-generated method stub
+		System.out.println("Programcı Çalışıyor...");
+	}
+
+}
+public class SistemProgramci extends Programci {
+	
+	public void sistemİncele() {
+		System.out.println("Sistem İnceleniyor...");
+	}
+
+}
+public class AnalizProgramci extends Programci {
+	
+	public void analizYap() {
+		System.out.println("Analiz Yapılıyor...");
+	}
+
+}
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Mudur mudur = new Mudur();
+		Programci prgrm = new Programci();
+		Pazarlamaci pzrlm = new Pazarlamaci();
+		Sekreter skrtr = new Sekreter();
+		GenelMudur gnlmdr = new GenelMudur();
+		AnalizProgramci anlz = new AnalizProgramci();
+		SistemProgramci sprgrm = new SistemProgramci();
+		
+		
+		mudur.calis();
+		prgrm.calis();
+		pzrlm.calis();
+		skrtr.calis();
+		gnlmdr.calis();
+		gnlmdr.toplantıYonet();
+		anlz.analizYap();
+		anlz.calis();
+		sprgrm.calis();
+		sprgrm.sistemİncele();
+		
+
+	}
+
+}
