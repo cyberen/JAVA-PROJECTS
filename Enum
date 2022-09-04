@@ -1,0 +1,30 @@
+public class Main {
+	
+	public enum Meyve {
+		Elma,
+		Armut,
+		Çilek;
+	}
+	public static void fatura(Meyve m) {
+		if(m == Meyve.Elma) {
+			System.out.println("Elma 2 TL");
+		}
+		else if (m == Meyve.Armut) {
+			System.out.println("Armut 3 TL");
+		}
+		else if (m == Meyve.Çilek) {
+			System.out.println("Çilek 5 TL");
+		}
+		else  {
+			System.out.println("Yanlış seçim yaptınız ...");
+		}
+	}
+
+	public static void main(String[] args) {
+
+		fatura(Meyve.Çilek);
+		
+	}
+
+
+}
