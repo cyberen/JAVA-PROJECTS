@@ -1,0 +1,31 @@
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		
+		File f = new File("dosya.txt");
+		if(!f.exists()) {
+			f.createNewFile();
+		}
+		String val = "Kodlama";
+		FileWriter fw = new FileWriter(f,false);
+		BufferedWriter bw = new BufferedWriter(fw);
+		bw.write(val + "Selam");
+		bw.close();
+		
+		
+		FileReader fr = new FileReader(f);
+		String line;
+		
+		BufferedReader br = new BufferedReader(fr);
+		
+		while((line=br.readLine()) != null ) {
+			
+			System.out.println(line);
+		}
+		br.close();
+		
+
+	}
+
+}
