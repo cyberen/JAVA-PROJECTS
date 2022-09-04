@@ -1,0 +1,40 @@
+public class islemler {
+
+	@Override
+	public int toplama(int a, int b) {
+	
+		return a+b;
+	}
+
+	@Override
+	public int çıkartma(int a, int b) {
+		
+		return a-b;
+	}
+	
+	public int çarpma(int a , int b) {
+		return a*b;
+	}
+	
+	public int bolme(int a , int b) {
+		return a/b;
+	}
+
+}
+
+public class Main  {
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		islemler islem= new islemler();
+		
+		System.out.println(islem.çıkartma(3, 5));
+		System.out.println(islem.toplama(3, 5));
+		System.out.println(islem.çarpma(4, 4));
+		System.out.println(islem.bolme(16, 4));
+	
+		
+	}
+
+}
