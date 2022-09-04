@@ -1,0 +1,206 @@
+import java.util.Scanner;
+
+
+
+class Link {
+	
+	Scanner scan = new Scanner(System.in);
+
+	
+	public long no ;
+	public String isim;
+	public String soyisim;
+	public Link sonraki; 
+	public Link onceki;
+
+
+	public Link(long d,String i,String s) 
+	{
+		no = d;
+		isim = i;
+		soyisim = s;
+	}
+
+	
+	public void listele() 
+	{
+		System.out.println("Öğrenci NO : " + no);
+		System.out.println("Öğrenci İsim : " + isim);
+		System.out.println("Öğrenci Soyisim : " + soyisim);
+	}
+	
+} 
+
+class IkiYonluListe {
+	private Link ilk;
+	private Link son; 
+	
+	Scanner scan = new Scanner(System.in);
+	
+	public IkiYonluListe() 
+	{
+		ilk = null;
+		son = null;
+	}
+	
+	public void giriş() {
+		
+		System.out.println("NO Giriniz : ");
+		long no = scan.nextLong();
+		System.out.println("İsim giriniz : ");
+		String isim = scan.next();
+		System.out.println("Soyisim giriniz : ");
+		String soyisim = scan.next();
+		
+	}
+
+	
+	public boolean bosMu() 
+	{
+		return ilk == null;
+	}
+
+
+	public void basaEkle(long dd,String ii ,String ss ) 
+	{
+		Link yeniDugum = new Link(dd,ii,ss); 
+
+		if (bosMu()) 
+			son = yeniDugum;
+		else
+			ilk.onceki = yeniDugum;
+		yeniDugum.sonraki = ilk; 
+		ilk = yeniDugum; 
+	}
+
+
+	public void sonaEkle(long dd,String ii , String ss)
+	{
+		Link yeniDugum = new Link(dd,ii,ss); 
+		if (bosMu()) 
+			ilk = yeniDugum; 
+		else {
+			son.sonraki = yeniDugum;
+			yeniDugum.onceki = son;
+		}
+		son = yeniDugum; 
+	}
+
+
+	public Link bastanSil() 
+	{
+		Link yedek = ilk;
+		if (ilk.sonraki == null) 
+			son = null; 
+		else
+			ilk.sonraki.onceki = null; 
+		ilk = ilk.sonraki; 
+		return yedek;
+	}
+
+
+	public Link sondanSil() 
+	{ 
+		Link yedek = son;
+		if (ilk.sonraki == null) 
+			ilk = null; 
+		else
+			son.onceki.sonraki = null;
+		son = son.onceki;
+		return yedek;
+	}
+
+	public boolean arkasinaEkle(long anahtar, long dd,String ii,String ss) { 
+		Link aktif = ilk;
+		while (aktif.no != anahtar) 
+		{
+			aktif = aktif.sonraki; 
+			if (aktif == null)
+				return false;
+		}
+		Link yeniDugum = new Link(dd,ii,ss);
+
+		if (aktif == son) 
+		{
+			yeniDugum.sonraki = null;
+			son = yeniDugum;
+		} else
+		{
+			yeniDugum.sonraki = aktif.sonraki; 
+						
+			aktif.sonraki.onceki = yeniDugum;
+		}
+		yeniDugum.onceki = aktif; 
+		aktif.sonraki = yeniDugum; 
+		return true; 
+	}
+
+	public Link seciliSil(long anahtar)
+	{ 
+		Link aktif = ilk; 
+		while (aktif.no != anahtar) 
+		{
+			aktif = aktif.sonraki; 
+			if (aktif == null)
+				return null; 
+		}
+		if (aktif == ilk) 
+			ilk = aktif.sonraki; 
+		else 
+				
+			aktif.onceki.sonraki = aktif.sonraki;
+
+		if (aktif == son) 
+			son = aktif.onceki; 
+		else 
+			
+			aktif.sonraki.onceki = aktif.onceki;
+		return aktif; 
+	}
+
+	public void yazdir() {
+		System.out.print("Liste : ");
+		Link aktif = ilk; 
+		while (aktif != null) 
+		{
+			aktif.listele(); 
+			aktif = aktif.sonraki; 
+		}
+		System.out.println("");
+	}
+	
+
+} 
+import java.util.Scanner;
+
+class LinkedList { 
+	public static void main(String[] args) { 
+		
+		IkiYonluListe liste = new IkiYonluListe();
+		
+		Scanner scan = new Scanner(System.in);
+	
+
+
+		liste.basaEkle(22,"Eren","Aral"); 
+		liste.basaEkle(44,"Eren","Aral");
+		liste.basaEkle(66,"Eren","Aral");
+
+		liste.sonaEkle(1,"Eren","Aral");
+		liste.sonaEkle(33,"Eren","Aral");
+		liste.sonaEkle(55,"Eren","Aral");
+
+		liste.yazdir();
+
+		liste.bastanSil();
+		liste.sondanSil(); 
+		liste.seciliSil(11); 
+
+		liste.yazdir(); 
+
+		liste.arkasinaEkle(22, 77,"Eren","Aral"); 
+		liste.arkasinaEkle(33, 88,"Eren","Aral"); 
+
+		liste.yazdir(); 
+	}
+}
