@@ -1,0 +1,61 @@
+public class Employee {
+	
+	private String name,sname;
+	private int id,salary;
+	
+	public Employee(String name,String sname,int id,int salary) {
+		this.name=name;
+		this.sname=sname;
+		this.id=id;
+		this.salary=salary;
+		
+	}
+	public void showInfos() {
+		System.out.println("Name : " + name + "Surname : " + sname + " ID : " + id + "Salary : " + salary);
+	}
+
+	public String toString() {
+		return "İsim : " + name + "Soyisim : " + sname + "ID : " + id + "Salary : " + salary;
+	}
+}
+
+
+public class Manager extends Employee {
+	
+	private int num;
+	private int amount;
+
+	public Manager(String name, String sname, int id, int salary,int num, int amount) {
+		super(name, sname, id, salary);
+		this.amount=amount;
+		this.num=num;
+		
+	}
+	
+	public void showInfos() {
+		super.showInfos();
+		System.out.println("Maaş Zammı : " + amount);
+		System.out.println("Çalışan Kişi Sayısı : " + num);
+	}
+
+}
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Employee emp = new Employee("Ahmet","Demir",345234,2134);
+		Manager mng = new Manager("Eren","Aral",1,9999999,10,998);
+		Employee emng = new Manager("Eren","Aral",111,99999999,999999,0);
+		
+		mng.showInfos();
+		emng.showInfos();
+		emp.showInfos();
+		
+		System.out.println(mng);
+		System.out.println(emp);
+	}
+	
+}
+		
