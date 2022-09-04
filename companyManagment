@@ -1,0 +1,74 @@
+public class kalıtım {
+	
+	private String isim;
+	private String soyisim;
+	private int maas;
+	
+	public kalıtım(String isim,String soyisim,int maas) {
+		this.isim=isim;
+		this.maas=maas;
+		this.soyisim=soyisim;
+	}
+	
+	public void showInfos() {
+		System.out.println("İsim :" + isim + "Soyisim : "+ soyisim + "Maas :"+ maas);
+	}
+	
+	public String toString() {
+		return "İsim :" + isim + "Soyisim:"+ soyisim + "Maas :" + maas;
+	}
+
+}
+
+public class calisan extends kalıtım {
+
+	
+	public calisan(String isim,String soyisim,int maas) {
+		super(isim,soyisim,maas);
+	}
+	
+}
+
+public class yonetici extends kalıtım {
+	
+	private int num;
+	
+	public yonetici(String isim,String soyisim,int maas,int num) {
+		super(isim,soyisim,maas);
+		this.num=num;
+	}
+	public void salary(int a) {
+		System.out.println("Calısanlara "+ a + " TL Zam yapıldı...");
+	}
+	@Override
+	public void showInfos() {
+		// TODO Auto-generated method stub
+		super.showInfos();
+		System.out.println("Numara : " + num);
+	}
+
+}
+
+public class Sistem {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		yonetici yntc = new yonetici("Eren","Aral",9999999,123);
+		calisan clsn = new calisan("Gizem","Soydan",4334);
+		kalıtım kltm = new kalıtım("bora","akten",123);
+		
+		
+		
+		yntc.showInfos();
+		clsn.showInfos();
+		kltm.showInfos();
+		
+		System.out.println(yntc);
+		System.out.println(clsn);
+		System.out.println(kltm);
+		
+		yntc.salary(100);
+	}
+
+}
