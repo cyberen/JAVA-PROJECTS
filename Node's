@@ -1,0 +1,262 @@
+public class Dugum {
+
+	private int deger;
+	private Dugum next;
+	
+        public int getDeger() {
+		return deger;
+	}
+	public void setDeger(int deger) {
+		this.deger = deger;
+	}
+	public Dugum getNext() {
+		return next;
+	}
+	public void setNext(Dugum next) {
+		this.next = next;
+	}
+        @Override
+        public String toString() {
+                return  getDeger() + "";
+        }
+
+}
+public class Linked {
+	
+	private Dugum head;
+	private Dugum tail;
+	private int size;
+	
+	Dugum listeOlustur(int nodeValue) {
+		head = new Dugum();
+		Dugum node = new Dugum();
+		node.setDeger(nodeValue);
+		node.setNext(node);
+		head = node;
+		tail = node;
+		size = 1;
+		return head;
+	}
+	public Dugum getHead() {
+		return head;
+	}
+	public void setHead(Dugum head) {
+		this.head = head;
+	}
+	public Dugum getTail() {
+		return tail;
+	}
+	public void setTail(Dugum tail) {
+		this.tail = tail;
+	}
+	public int getSize() {
+		return size;
+	}
+	public void setSize(int size) {
+		this.size = size;
+	}
+	void elemanEkle(int nodeValue, int location) {
+		Dugum node = new Dugum();
+		node.setDeger(nodeValue);
+		System.out.println("Belirtilen konuma yeni eleman ekle: " + location);
+		if (!mevcutLinkedList()) {
+			System.out.println("Liste yok!");
+			return; 
+		} else if (location == 0) {
+			node.setNext(head);
+			head = node;
+			tail.setNext(node); 
+		} else if (location >= size) {
+			tail.setNext(node);
+			tail = node;
+			tail.setNext(head);
+		} else 
+		{
+			Dugum tempNode = head;
+			int index = 0;
+			while (index < location - 1) {
+				tempNode = tempNode.getNext();
+				index++;
+			}
+			node.setNext(tempNode.getNext());
+			tempNode.setNext(node);			
+		}
+		size++;
+	}
+	public boolean mevcutLinkedList() {
+		
+		return head != null;
+	}
+	
+	
+	void traverseLinkedList() {
+		if (mevcutLinkedList()) {
+			Dugum tempNode = head;
+			for (int i = 0; i < size; i++) {
+				System.out.print(tempNode.getDeger());
+				if (i != size - 1) {
+					System.out.print(" -> ");
+				}
+				tempNode = tempNode.getNext();
+			}
+			System.out.println("\n");
+		}else {
+			System.out.println("\nLinked List yok");
+		}
+	}
+	
+	
+	
+	void TailKullanarakHeadYazdir() {
+		if (mevcutLinkedList()) {
+			System.out.println("Tail:");
+			System.out.println(tail.getDeger());
+			
+			System.out.println("Head referans kullanarak bulunan Head:");
+			System.out.println(head.getDeger());
+			
+			System.out.println("Tail referans kullanarak bulunan Head");
+			System.out.println(tail.getNext().getDeger());
+			
+		}else{
+			System.out.println("Linked List yok");
+		}
+	}
+	
+
+	void silLinkedList() {
+		System.out.println("\n\nLinked List siliniyor");
+		head = null;
+		if(tail == null) {
+			System.out.println("Linked List zaten silinmiş");
+			return;
+		}else {
+			tail.setNext(null);
+			tail = null;
+			System.out.println("Linked List başarıyla silindi");
+		}
+	}
+	
+	
+	
+	boolean searchNode(int nodeValue) {
+		if (mevcutLinkedList()) {
+			Dugum tempNode = head;
+			for (int i = 0; i < size; i++) {
+				if (tempNode.getDeger() == nodeValue) {
+					System.out.print("Düğüm şu konumda bulundu: "+i);
+					return true;
+				}
+				tempNode = tempNode.getNext();
+			}
+		}
+		System.out.print("Düğüm bulunamadı");
+		return false;
+	}
+	public void silNode(int location) {
+		if (!mevcutLinkedList()) {
+			System.out.println("Linked list yok");
+			return;
+		} else if (location == 0) { 
+			head = head.getNext();
+			tail.setNext(head);
+			setSize(getSize()-1);
+			if(getSize() == 0) {
+				tail = null;
+			}	
+		}else if (location >= getSize()){ 
+			Dugum tempNode = head;
+			for (int i = 0; i < size - 1; i++) {
+				tempNode = tempNode.getNext(); 
+			}
+			if (tempNode == head) { 
+				tail = head = null;
+				setSize(getSize()-1);
+				return;
+			}
+			tempNode.setNext(head); 
+			tail= tempNode;
+			setSize(getSize()-1);
+			
+		}else { 
+			Dugum tempNode = head;
+			for (int i = 0; i < location - 1; i++) {
+				tempNode = tempNode.getNext();
+			}	
+			tempNode.setNext(tempNode.getNext().getNext()); 
+			setSize(getSize()-1);
+		}
+		
+	}
+
+
+}
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Linked list = new Linked();
+		list.listeOlustur(10);
+		list.elemanEkle(10, 1);
+		list.elemanEkle(20, 2);
+		list.elemanEkle(30, 3);
+		list.elemanEkle(40, 4);
+		list.elemanEkle(50, 5);
+		list.elemanEkle(60, 6);
+		list.elemanEkle(70, 7);
+		list.elemanEkle(80, 8);
+		list.elemanEkle(90, 9);
+		list.elemanEkle(100, 10);
+		
+		System.out.println("Linked List: ");
+		list.traverseLinkedList();
+	    
+		list.elemanEkle(35, 4);
+		list.traverseLinkedList();
+		
+		list.elemanEkle(1, 0);
+		list.traverseLinkedList();
+		
+		list.elemanEkle(101, 10);
+		list.traverseLinkedList();
+		
+		
+		list.TailKullanarakHeadYazdir();
+		
+		System.out.println("Değeri 40 olan düğümü bul: ");
+		list.searchNode(40);
+		
+		System.out.println("Değeri 200 olan düğümü bul: ");
+		list.searchNode(200);
+		
+		
+		System.out.println("2.konumda olan düğümü sil: ");
+		System.out.println("Silmeden önce...");
+		list.traverseLinkedList();
+		list.silNode(2);
+		System.out.println("Sildikten sonra:");
+		list.traverseLinkedList();
+		
+		
+		System.out.println("0.konumda olan düğümü sil");
+		System.out.println("Silmeden önce...");
+		list.traverseLinkedList();
+		list.silNode(0);
+		System.out.println("Sildikten sonra:");
+		list.traverseLinkedList();
+		
+		
+		System.out.println("15.konumda olan düğümü sil");
+		System.out.println("Silmeden önce...");
+		list.traverseLinkedList();
+		list.silNode(15);
+		System.out.println("Sildikten sonra");
+		list.traverseLinkedList();
+		
+		list.silLinkedList();
+		list.traverseLinkedList();
+		
+	}
+		
+	}
