@@ -1,0 +1,42 @@
+
+public class islemler implements Runnable{
+	String name;
+	
+	public islemler(String name) {
+		this.name=name;
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+	
+			try {
+				for (int i=5; i>0;i--) {
+					System.out.println(this.name + " : " + i);
+				Thread.sleep(1000);
+			}
+			}catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out.println("İşlem Bitti ...");
+		}
+		
+	}
+  
+  public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		islemler i = new islemler("Eren");
+		i.run();
+		islemler a = new islemler("Emre");
+		a.run();
+		
+		Thread t1 = new Thread(i);
+		t1.start();
+		
+	}
+
+}
